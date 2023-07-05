@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1" name="Yogen_Ableton Solo Toggle Actions (Solo Exclusive, Add to Solo)">
+    <category name="Track">
+        <reapack name="Ableton Solo Toggle Actions (Solo exclusive, Add to Solo)" type="Script">
+            <version name="1.0.0">
+                <source>https://github.com/Yogen-Git/REAPER-ReaScripts/tree/5e3e17dd49051c6692567d8be70a90a3aebd9273/Ableton%20Solo%20Toggle%20Actions%20(Solo%20Exclusive%20%3A%20Add%20to%20Solo)</source>
+            </version>
+        </reapack>
+    </category>
+</index>
+    
