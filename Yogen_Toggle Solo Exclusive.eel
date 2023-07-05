@@ -1,0 +1,64 @@
+/**
+ * Author: Yogen
+ * Contact:www.instagram.com/gwen_buord/
+ * Repository URI: https://github.com/X-Raym/REAPER-ReaScripts
+ * Licence: GPL v3.0
+ * Forum Thread URI:
+ * REAPER: v6.81
+ * Version: 1.0
+*/
+
+/**
+ * Changelog:
+ * v1.0
+  + Initial release
+ */
+
+function checksolo() local(track, i) (
+  i=0;
+  x=0;
+  loop(CountSelectedTracks(0),
+    x+=GetMediaTrackInfo_Value(GetSelectedTrack(0, i), "I_SOLO"); // Count Solos within Selection
+    i+=1;
+  );
+  t=0;
+  s=0;
+  loop(CountTracks(0),
+    s+=GetMediaTrackInfo_Value(GetTrack(0,t),"I_SOLO"); // Count Solos in Reaper Project
+    t+=1;
+  );
+);
+function solo() (
+  
+    i=CountSelectedTracks(0)*2; // Multiply by 2 to because "Solo in place" state returns 2 for the GetMediaTrackInfo_Value() function
+    x==0 ? ( //If Selected Tracks aren't Soloed, Unsolo all tracks and toggle solo selected tracks
+      Main_OnCommandEx(40340,0,0);
+      Main_OnCommandEx(7,0,0);
+    );
+  
+    x!=0 ? ( //If there are solos within Selection, then:
+      x==i ? ( //If the number of solos within selection is equal to the nume of sleected tracks, then:
+        x==s ? ( //If the number of solos within selection is strictly equal to number of solos within project,then Unsolo All Tracks
+          Main_OnCommandEx(40340,0,0);
+        );
+        x<s ? ( //If the number of solos within selection is less than the number of solos within project, then Solo only selected tracks
+          Main_OnCommandEx(40340,0,0);
+          Main_OnCommandEx(7,0,0);
+        );
+      );
+    
+      x!=i ? ( //If the number of solos within selection is not equal to the number of selected tracks, then Unsolo all tracks and toggle solo selected tracks 
+        Main_OnCommandEx(40340,0,0);
+        Main_OnCommandEx(7,0,0);
+      );
+    );
+  );
+
+
+Undo_BeginBlock();
+PreventUIRefresh(1);
+ClearConsole();
+checksolo();
+solo();
+PreventUIRefresh(-1);
+Undo_EndBlock("Solo exclusive selected tracks", -1);
