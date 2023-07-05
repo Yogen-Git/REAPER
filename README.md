@@ -1,4 +1,4 @@
-# REAPER
+# Solo Exclusive / Solo in Place from the Action List (Ableton feature clone)
 
 Thank you for trying out my scripts.
 
