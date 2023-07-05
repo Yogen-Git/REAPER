@@ -8,7 +8,7 @@ Thank you for trying out my scripts.
 
 ## SCRIPTS:
 
-## Ableton Solo Toggle Behavior (Solo Exclusive / Add to Solo)
+## Ableton Solo Toggle Actions (Solo Exclusive / Add to Solo)
 
 The purpose of this project is to bring Reaper users the comfort of using the "Solo in Place" and "Solo Exclusive" actions
 using keyboard shortcuts (or any means accessible via the Action List).
